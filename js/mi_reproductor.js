@@ -192,6 +192,8 @@ var VideoFunciones = {
      * ya formado el HTML lo concatenamos al contenedor de las fotografias
      */
     capturar_foto_video : function(){
+        Variables.canva_fotografia.width = Variables.contexto_canva_w;
+        Variables.canva_fotografia.height = Variables.contexto_canva_h;
         Variables.contexto_canva.fillRect(0,0,Variables.contexto_canva_w,Variables.contexto_canva_h);
         Variables.contexto_canva.drawImage(Variables.reproductor_video,0,0,Variables.contexto_canva_w,Variables.contexto_canva_h);
         //Variables.canva_fotografia.style.display = 'inline';
@@ -294,13 +296,12 @@ var VideoFunciones = {
         //evento auxiliar para la captura de la fotografia del canva
         Variables.reproductor_video.addEventListener('loadedmetadata',function(){
             var radio_video = Variables.reproductor_video.videoWidth / Variables.reproductor_video.videoHeight;
-            var width = Variables.reproductor_video.videoWidth - 100;
-            var heigth = parseInt(width / radio_video,10);
+            var width = Variables.reproductor_video.videoWidth + 100;
+            var heigth = parseInt(width / radio_video + 100);
             Variables.canva_fotografia.width = width;
             Variables.canva_fotografia.heigth = heigth;
             Variables.contexto_canva_w = width;
             Variables.contexto_canva_h = heigth;
-            console.log(width+'-----'+heigth);
             Variables.contexto_canva = Variables.canva_fotografia.getContext('2d');
         },false);
     },
