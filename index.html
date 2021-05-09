@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <!-- etiqueta meta para especificar lo de un sitio web responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="author" content="Enrique Corona Ricaño">
+    <meta name="description" content="Tarea, Realización de un reproductor de video con HTML5, CSS y JavaScript de la materia de Streaming en la Web">
+    <meta name="keywords" content="Enrique Corona Ricaño, Estudiante de Maestria ecoronar en UNIR México, Maestría en Dirección e Ingenieria de Sitios Web ">
+
+    <title>Reproductor de video</title>
+
+    <!-- cargamos el estilo CSS3 para el reproductor de video -->
+    <link rel="stylesheet" href="css/mi_reproductor.css">
+    <link rel="icon" href="imgs/icono.PNG">
+
+</head>
+<body>
+
+<!-- encabezado del sitio del reproductor -->
+<header>
+    <h3 id="titulo">
+        <img class="img_titulo" src="imgs/icono.PNG" alt="Mi logo ECR">
+        <span>Mi reproductor de video - Enrique Corona Ricaño</span>
+        <img class="img_titulo" src="imgs/icono.PNG" alt="Mi logo ECR">
+    </h3>
+</header>
+
+
+<!-- contenedor principal del reproductor de video -->
+<div id="contenedor_reproductor">
+   <!-- seccion para el reproductor del video -->
+    <section id="mi_reproductor">
+        <!-- agregamos la etiqueta video para nuestro archivo multimedia
+            le quitamos el atributo control para que no esten visible en los navegadores
+            lo vamos a personalizar posteriormente
+         -->
+        <video id="reproductor_video" preload="none">
+            Navegador abierto no soporta los videos MP4 de HTML5
+        </video>
+    </section>
+    <!-- apartado de el panel de los controler del reporductor -->
+    <aside id="panel_controles">
+        <!-- barra de progreso al reproducir el video -->
+        <table class="controles">
+            <tr>
+                <td>
+                    <input type="range" style="width: 100%" id="progreso_video" max="100" min="0" value="0">
+                </td>
+            </tr>
+        </table>
+        <!-- controles del reproductor:
+            1. retrasar 5 segundos al video,
+            2. reporducir/pausar,
+            3. adelantar 5 segundos el video,
+            4. capturar imagen del video
+            5. cambiar la velocidad del reproductor,
+            6. cambiar el tamaño del video,
+            7. silenciar/activar sonido
+            8. subtitulos
+            9. barra de volumen
+            -->
+        <table class="controles">
+            <tr>
+                <td>
+                    <button id="boton_atras" type="button" class="boton_controles" title="Retroceder 5 segundos" ><img class="img_boton" src="imgs/iconos/atras.png" alt="Retroceder 5 segundos"></button>
+                </td>
+                <td>
+                    <button id="boton_reproducir" type="button" class="boton_controles" title="Reproducir" onclick="VideoFunciones.reproducir()" >
+                        <img class="img_boton" src="imgs/iconos/play.png" alt="Play">
+                    </button>
+                    <button id="boton_pausar" type="button" onclick="VideoFunciones.pausar()" title="Pausar" class="boton_controles" style="display: none">
+                        <img class="img_boton" src="imgs/iconos/pause.png" alt="Pause">
+                    </button>
+                </td>
+                <td>
+                    <button id="boton_adelantar" type="button" class="boton_controles" title="Adelantar 5 segundos" ><img class="img_boton" src="imgs/iconos/siguiente.png" alt="Adelantar 5 segundos"></button>
+                </td>
+                <td>
+                    <button id="boton_fotografia" type="button" disabled="disabled" class="boton_controles" onclick="VideoFunciones.capturar_foto_video()"
+                            title="Capturar fotografia del video" ><img class="img_boton" src="imgs/iconos/camara.png" alt="Foto del video"></button>
+                </td>
+                <td>
+                    <select id="boton_velocidad" class="boton_controles" disabled="disabled" title="velocidad">
+                        <option value="0.5">0.5x</option>
+                        <option value="1" selected="selected">1x</option>
+                        <option value="2">2x</option>
+                    </select><br>
+                </td>
+                <td>
+                    <select id="boton_tamanio" class="boton_controles" disabled="disabled" title="Tamaño">
+                        <option value="1">720p</option>
+                        <option value="2">480p</option>
+                        <option value="3">360p</option>
+                        <option value="4">240p</option>
+                        <option value="5">144p</option>
+                    </select><br>
+                </td>
+                <td>
+                    <select id="boton_subtitulos" class="boton_controles" disabled="disabled" title="Idioma">
+                        <option selected="selected">N/A</option>
+                        <option value="esp">Español</option>
+                        <option value="eng">Ingles</option>
+                    </select>
+                </td>
+                <td>
+                    <button id="boton_volumen" type="button" class="boton_controles" onclick="VideoFunciones.silenciar()" >
+                        <img class="img_boton" src="imgs/iconos/volume.png" alt="Silencio">
+                    </button>
+                    <button id="boton_silecio" type="button" class="boton_controles" onclick="VideoFunciones.activar_sonido()" style="display: none" >
+                        <img class="img_boton" src="imgs/iconos/mute.png" alt="Silencio">
+                    </button>
+                </td>
+                <td>
+                    <input id="barra_volumen" style="width: 75px" type="range" min="0" max="100" value="100">
+                </td>
+            </tr>
+            <tr id="leyendas_controles">
+                <td>-5 Segundos</td>
+                <td>Reproducir/Pause</td>
+                <td>+5 Segundos</td>
+                <td>Fotografía</td>
+                <td>Velocidad</td>
+                <td>Tamaño</td>
+                <td>Subtitulos</td>
+                <td>Sileciar</td>
+                <td>Volumen</td>
+            </tr>
+        </table>
+    </aside>
+    <!-- apartado para la lista de videos disponibles de la lista de reproduccion
+        este apartado se carga por medio de una funcion de que esta en JavaScript
+        -->
+    <aside id="panel_lista_reproduccion"></aside>
+</div>
+
+<!-- canvas auxiliar para poder capturar una imagen del video y poderlo guardar despues -->
+<canvas id="canva_fotografia" width="1366" height="768" style="display: none"></canvas>
+<!-- contendra el listado de fotos que se capturaron del video -->
+<div id="contenedor_fotos_video">
+    <label>Capturas de fotos del video</label>
+    <table>
+        <tr id="reglon_fotografias"></tr>
+    </table>
+</div>
+
+<!-- pie de pagina del sitio del reproductor con mis datos personales -->
+<footer>
+    <p>UNIR México - Universidad Internacional de la Rioja</p>
+    <p><strong>Enrique Corona Ricaño</strong></p>
+    <p>Estudiante de Maestria en Dirección en Ingenieria de sitios Web</p>
+</footer>
+
+<!-- se carga el script de JavaScript que contiene todas las funcioens del reproductor de video -->
+<script src="js/mi_reproductor.js"></script>
+
+</body>
+
+</html>

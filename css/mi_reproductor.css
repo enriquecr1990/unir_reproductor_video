@@ -1,0 +1,374 @@
+/* Hoja de estilos para el reproductor de video
+ * Creado por Enrique Corona Ricaño
+ * Mayo 2021 -
+ * Entregable de la tarea de Streaming en la web del 3er semestre de Maestria
+ * UNIR  - México / Maestría en Dirección e Ingenieria de Sitios Web
+ */
+
+/* Apartado que contiene el diseño del reproductor, fondo de pagina, sombras, color de fondo
+ * Tamaño de fuente, alineación, bordes, tamaños de elementos de las etiquetas HTML
+ */
+
+/* modificamos el fondo del sitio en un color gris claro  */
+body{
+    background-color: whitesmoke;
+}
+
+/* diseño del encabezado del sitio */
+#titulo{
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+}
+
+#titulo span{
+    font-size: 30px;
+}
+
+.img_titulo{
+    width: 60px;
+    height: 60px;
+}
+
+#mi_reproductor{
+    width: 800px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    background: black;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+    margin-bottom: 15px;
+    margin-left: 15%;
+}
+
+video{
+    margin-top: 10px;
+    border: 20px;
+    margin-bottom: 10px;
+    width: 780px;
+    height: 480px;
+    background: lightgray;
+    border-radius: 10px;
+}
+
+#panel_controles{
+    position: absolute;
+    width: 810px;
+    background: black;
+    height: auto;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    transition-duration: 0.6s;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+    margin-left: 15%;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+
+#panel_lista_reproduccion{
+    position: absolute;
+    margin-top: -550px;
+    background: black;
+    width: 300px;
+    height: 650px;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-top: 15px;
+    padding-right: 5px;
+    transition-duration: 0.6s;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+    margin-left: 70%;
+}
+
+.controles{
+    width: 100%;
+}
+
+.img_boton{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background: ghostwhite;
+    text-align: center;
+}
+
+.boton_controles{
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+}
+
+select.boton_controles{
+    width: 35px;
+    height: 35px;
+    background: white;
+    border: none;
+    color: black;
+    font-size: 18px;
+    border-radius: 100%;
+    appearance: none;
+}
+
+select.boton_controles:hover{
+    background-color: skyblue;
+}
+
+select.boton_controles:active{
+    background-color: darkseagreen;
+}
+
+.img_boton:hover{
+    background: skyblue;
+}
+
+.img_boton:active{
+    background: darkseagreen;
+}
+
+.img_lista_reproduccion{
+    width: 150px; height: 100px;
+    border-radius: 10px;
+}
+
+.link_video:link{
+    color: white;
+    text-decoration: none;
+}
+
+.link_video:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.link_video.active table{
+    background: gray;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+}
+
+#progreso_video_input{
+    width: 98%;
+    position: absolute;
+    margin-left: 0px;
+    margin-top: -19px;
+}
+
+
+footer{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+    margin-top: 2%;
+    padding-top: 1px;
+    padding-bottom: 4px;
+}
+
+#leyendas_controles{
+    display: contents;
+}
+
+#contenedor_fotos_video{
+    width: 100%;
+    background-color: black;
+    border-radius: 12px;
+    box-shadow: 5px 3px 5px 1px skyblue; /* sombra ancho, alto, radio, radio propagacion, color*/
+    height: 290px;
+    color: white;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow-x: scroll;
+    margin-top: 8%;
+}
+
+.foto_captura_video{
+    width: 230px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+
+/* Apartado para el diseño responsivo adaptativo en distintos dispositivos
+ * El diseño tiene como finalidad que se adapte en los dispositivos, es sencillo y funcional
+ */
+
+/* Dispositivos moviles */
+@media (max-width: 767px){
+    #contenedor_reproductor{
+        overflow-x: scroll;
+    }
+
+    #leyendas_controles{
+        display: none;
+    }
+
+    #mi_reproductor{
+        width: 60%;
+        margin-left: 0%;
+    }
+
+    footer{
+        margin-top: 5%;
+        height: 130px;
+    }
+
+    video{
+        width: 95%;
+        height: 300px;
+    }
+
+    #panel_controles{
+        width: 92%;
+        margin-left: 0%;
+        overflow-x: scroll;
+    }
+
+    #panel_lista_reproduccion{
+        margin-top: -368px;
+        margin-left: 65%;
+        width: 25%;
+        height: 338px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+
+    .img_lista_reproduccion{
+        width: 50px;
+        height: 30px;
+    }
+
+    .img_boton{
+        width: 20px;
+        height: 20px;
+    }
+
+    select.boton_controles{
+        width: 20px; height: 20px;
+        font-size: 10px;
+    }
+
+    #contenedor_fotos_video{
+        margin-top: 25%;
+    }
+
+
+    .foto_captura_video{
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+}
+
+/* Dispositivos tablets */
+@media (min-width: 768px) and (max-width: 1024px){
+    #mi_reproductor{
+        width: 60%;
+        margin-left: 0%;
+    }
+
+    footer{
+        margin-top: 3%;
+    }
+
+    video{
+        width: 90%;
+        height: 300px;
+    }
+
+    #panel_controles{
+        width: 97%;
+        margin-left: 0%;
+    }
+
+    #panel_lista_reproduccion{
+        margin-top: -368px;
+        margin-left: 66%;
+        width: 31%;
+        height: 338px;
+        overflow-y: scroll;
+    }
+
+    .img_lista_reproduccion{
+        width: 80px;
+        height: 50px;
+    }
+
+    .img_boton{
+        width: 35px;
+        height: 35px;
+    }
+
+    select.boton_controles{
+        width: 40px; height: 40px;
+    }
+
+    #contenedor_fotos_video{
+        margin-top: 18%;
+    }
+
+
+    .foto_captura_video{
+        width: 180px;
+        height: 130px;
+        border-radius: 10px;
+    }
+}
+
+/* Dispositivos de escritorio */
+@media (min-width: 1025px) and (max-width: 1366px){
+    #mi_reproductor{
+        width: 60%;
+        margin-left: 0%;
+    }
+
+    footer{
+        margin-top: 2%;
+    }
+
+    video{
+        width: 97%;
+        height: 300px;
+    }
+
+    #panel_controles{
+        width: 60%;
+        margin-left: 0%;
+    }
+
+    #panel_lista_reproduccion{
+        margin-top: -368px;
+        margin-left: 66%;
+        width: 31%;
+        height: 470px;
+        overflow-y: scroll;
+    }
+
+    #contenedor_fotos_video{
+        margin-top: 12%;
+        height: 240px;
+    }
+
+    .foto_captura_video{
+        width: 200px;
+        height: 150px;
+        border-radius: 10px;
+    }
+}
