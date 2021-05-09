@@ -122,7 +122,8 @@ select.boton_controles{
 }
 
 select.boton_controles:hover{
-    background-color: skyblue;
+    background-color: black;
+    color: white;
 }
 
 select.boton_controles:active{

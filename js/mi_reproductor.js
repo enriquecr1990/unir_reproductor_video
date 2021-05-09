@@ -16,10 +16,10 @@ var Variables ={
 
     //arreglo de los videos para la lista de reproduccion
     videos : [
-        {poster : 'imgs/posters/desarrollador_sistemas.jpg',titulo : 'Desarrollador de sistemas pruebas',descripcion:'Desarrollador de sistemas - 00:00:14',src_video_mp4 : 'video/desarrollo_sistemas.mp4',src_video_ogg : 'video/desarrollo_sistemas.ogg',subs :{esp : 'video/subs/desarrollo_sistemas_esp.vtt',eng : 'video/subs/desarrollo_sistemas_eng.vtt'}},
+        {poster : 'imgs/posters/starwars.jpg',titulo : 'Starwars Floppys',descripcion:'Starwars Floppys- 00:00:52',src_video_mp4 : 'video/starwars.mp4',src_video_ogg: 'videos/starwars.ogg',subs :{esp : 'video/subs/starwars_esp.vtt',eng : 'video/subs/starwars_eng.vtt'}},
         {poster : 'imgs/posters/siesta_a.jpg',titulo : 'Una siesta gatuna (parte A)',descripcion:'Una siesta gatuna (parte A) - 00:00:30',src_video_mp4 : 'video/siesta_a.mp4',src_video_ogg: 'videos/siesta_a.ogg',subs :{esp : 'video/subs/siesta_a_esp.vtt',eng : 'video/subs/siesta_a_eng.vtt'}},
         {poster : 'imgs/posters/siesta_b.jpg',titulo : 'Una siesta gatuna (parte A)',descripcion:'Una siesta gatuna (parte B) - 00:00:30',src_video_mp4 : 'video/siesta_b.mp4',src_video_ogg: 'videos/siesta_b.ogg',subs :{esp : 'video/subs/siesta_b_esp.vtt',eng : 'video/subs/siesta_b_eng.vtt'}},
-        {poster : 'imgs/posters/starwars.jpg',titulo : 'Starwars Floppys',descripcion:'Starwars Floppys- 00:00:52',src_video_mp4 : 'video/starwars.mp4',src_video_ogg: 'videos/starwars.ogg',subs :{esp : 'video/subs/starwars_esp.vtt',eng : 'video/subs/starwars_eng.vtt'}},
+        {poster : 'imgs/posters/desarrollador_sistemas.jpg',titulo : 'Desarrollador de sistemas pruebas',descripcion:'Desarrollador de sistemas - 00:00:14',src_video_mp4 : 'video/desarrollo_sistemas.mp4',src_video_ogg : 'video/desarrollo_sistemas.ogg',subs :{esp : 'video/subs/desarrollo_sistemas_esp.vtt',eng : 'video/subs/desarrollo_sistemas_eng.vtt'}},
     ],
 
     //selector del reproductor de video - Etiqueta VIDEO HTML
